@@ -40,13 +40,16 @@ cd /tmp && tar xvf Kinect-2.8-001.tar.gz
 sed -i.bu 's/VRUI_MAKEDIR := $(HOME)\/Vrui-3.1\/share\/make/VRUI_MAKEDIR := \/usr\/local\/Cellar\/vrui\/3.1-002-1\/share\/vrui\/make/' /tmp/Kinect-2.8-001/makefile
 sed -i.bu 's/VRUI_MAKEDIR := $(HOME)\/Vrui-3.1\/share\/make/VRUI_MAKEDIR := \/usr\/local\/Cellar\/vrui\/3.1-002-1\/share\/vrui\/make/' /tmp/SARndbox-1.5-001/makefile
 
-echo "Building Kinect 3D Video Capture"
-cd /tmp/Kinect-2.8-001
-make && make install
 
-echo "Building SARndbox..."
+NUM_CPUS=$(sysctl -n hw.ncpu)
+
+echo "Building Kinect 3D Video Capture with $NUM_CPUS CPUs"
+cd /tmp/Kinect-2.8-001
+make -j$NUM_CPUS&& make install
+
+echo "Building SARndbox with $NUM_CPUS CPUs"
 cd /tmp/SARndbox-1.5-001
-make && make install
+make -j$NUM_CPUS && make install
 
 echo "Moving files to ~/bin"
 mkdir -p ~/bin
