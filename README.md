@@ -16,7 +16,13 @@ $ brew install xquartz
 
 ## Installing
 
-You'll just need to run the `installer.sh` script. This **should** walk
+You'll just need to run the `installer.sh` script.
+
+```
+$ sh installer.sh
+```
+
+This **should** walk
 you through everything that's going on on the system, including
 dowloading the source files, patching the `makefile` and moving the
 files to you `~/bin` directory.
