@@ -25,7 +25,8 @@ files to you `~/bin` directory.
 To run SARndbox, execute the programs in `~/bin/`
 
 ```
-$ ~/bin/
+$ ~/bin/CalibrateProjector
+$ ~/bin/SARndbox [options]
 ```
 
 ## Adding to PATH
